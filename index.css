@@ -6,19 +6,19 @@ html body {
     background-color: rgb(136, 97, 97);
     overflow: hidden;
     display: flex;
-    justify-content: center;
+    /* justify-content: center;
     align-items: center;
-   position: relative;
+    position: relative; */
 }
 
 /*  ============== LOADING ===================== */
 
 .loading {
     position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgb(199, 117, 10);
     z-index: 500;
     display: flex;
@@ -41,19 +41,35 @@ html body {
     inset: 0px;
     border-radius: 50%;
     border: 5px solid #FFF;
-    animation: prixClipFix 2s linear infinite ;
+    animation: prixClipFix 2s linear infinite;
 }
 
 @keyframes rotate {
-    100%   {transform: rotate(360deg)}
+    100% {
+        transform: rotate(360deg)
+    }
 }
 
 @keyframes prixClipFix {
-    0%   {clip-path:polygon(50% 50%,0 0,0 0,0 0,0 0,0 0)}
-    25%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 0,100% 0,100% 0)}
-    50%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,100% 100%,100% 100%)}
-    75%  {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 100%)}
-    100% {clip-path:polygon(50% 50%,0 0,100% 0,100% 100%,0 100%,0 0)}
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
 }
 
 /*  ============== ERROR-MSG ===================== */
@@ -74,10 +90,10 @@ html body {
 
 .panel {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 5%;
-    height:100%;
+    height: 100%;
     border: 2px solid black;
     border-bottom-right-radius: 12px;
     border-top-right-radius: 12px;
@@ -89,15 +105,16 @@ html body {
     box-sizing: border-box;
     color: white;
     container-type: inline-size;
-    font-size: 2rem;;
+    font-size: 2rem;
+    ;
 }
 
 .panel .panel-bg {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     background-color: rgb(196, 126, 68);
     opacity: 0.7;
     z-index: 1;
@@ -105,10 +122,10 @@ html body {
 
 .panel .disable-panel-buttons {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     z-index: 21;
     visibility: hidden;
 }
@@ -139,10 +156,10 @@ html body {
     padding: 4px;
     box-sizing: border-box;
     position: relative;
-    border-radius : 12px;
+    border-radius: 12px;
     box-shadow: 5px 5px 10px white;
     border: 4px solid black;
-    margin-bottom: 12px;;
+    margin: auto;
 }
 
 .screen {
@@ -156,7 +173,7 @@ html body {
 /*  ============== OPEN SCREEN ===================== */
 
 .screen .open-scr {
-    height:100%;
+    height: 100%;
     display: flex;
     position: relative;
     justify-content: center;
@@ -209,7 +226,7 @@ html body {
     font-size: 5cqw;
     width: 100%;
     height: 15%;
-    color:white;
+    color: white;
     text-shadow: 4px 4px 4px black;
     user-select: none;
 }
@@ -219,13 +236,13 @@ html body {
     flex-direction: column;
     justify-content: space-between;
     height: 75%;
-    width:90%;
+    width: 90%;
 }
 
 .items-row {
     display: flex;
     justify-content: space-between;
-    height:100%;
+    height: 100%;
 }
 
 .level-item {
@@ -254,8 +271,8 @@ html body {
 }
 
 .level-num {
-    width:100%;
-    height:100%;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -271,7 +288,7 @@ html body {
 }
 
 .screen.board-scr .squares-area {
-    height:100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -284,7 +301,7 @@ html body {
 
 .squares-row {
     display: flex;
-    height:100%;
+    height: 100%;
 }
 
 .square-item {
@@ -322,7 +339,7 @@ html body {
 /*  ============== HELP SCREEN ===================== */
 
 .screen.help-scr {
-    height:100%;
+    height: 100%;
     width: 100%;
     z-index: 100;
     display: flex;
@@ -334,10 +351,10 @@ html body {
 
 .screen.help-scr .help-bg {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     background-color: black;
     opacity: 0.8;
     z-index: 101;
@@ -368,7 +385,7 @@ html body {
     border: 4px solid white;
     border-radius: 12px;
     background-color: #df8943;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .screen.help-scr .close-help-btn button:hover {
@@ -389,10 +406,10 @@ html body {
 
 .screen .game-over-bg {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     background-color: black;
     opacity: 0.7;
 }
