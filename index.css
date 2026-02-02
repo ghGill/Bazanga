@@ -12,7 +12,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: relative; */
 }
 
 /*  ============== LOADING ===================== */
@@ -375,7 +374,7 @@ body {
     align-items: center;
     white-space: pre-line;
     font-size: 2cqw;
-    line-height: 130%;
+    line-height: 150%;
     user-select: none;
     z-index: 110;
 }
