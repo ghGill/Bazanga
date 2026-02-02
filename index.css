@@ -1,15 +1,18 @@
-html body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+    min-height: 100svh;
     box-sizing: border-box;
     background-color: rgb(136, 97, 97);
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    min-height: 100svh;
+    /* position: relative; */
 }
 
 /*  ============== LOADING ===================== */
@@ -257,9 +260,11 @@ html body {
     font-size: 3cqw;
     font-weight: bold;
     width: 10%;
-    margin: 12px;
+    margin: 8px;
     cursor: pointer;
     user-select: none;
+    box-sizing: border-box;
+    padding: 4px;
 }
 
 .level-item:hover {
