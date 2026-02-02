@@ -199,13 +199,14 @@ html body {
     align-items: center;
     box-sizing: border-box;
     padding: 4px;
+    container-type: inline-size;
 }
 
 .levels-scr .title {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 4rem;
+    font-size: 5cqw;
     width: 100%;
     height: 15%;
     color:white;
@@ -218,7 +219,7 @@ html body {
     flex-direction: column;
     justify-content: space-between;
     height: 75%;
-    width:100%;
+    width:90%;
 }
 
 .items-row {
@@ -235,7 +236,7 @@ html body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
+    font-size: 3cqw;
     font-weight: bold;
     width: 10%;
     margin: 12px;
@@ -329,6 +330,7 @@ html body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    container-type: inline-size;
 }
 
 .screen.help-scr .help-bg {
@@ -352,7 +354,7 @@ html body {
     margin: auto;
     white-space: pre-line;
     font-size: 2.4cqw;
-    line-height: 130%;
+    /* line-height: 130%; */
     user-select: none;
     z-index: 110;
 }
