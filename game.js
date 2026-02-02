@@ -10,6 +10,8 @@ let completeEffect=null;
 let failedEffect=null;
 let volumeStatus = true;
 
+let lastCompleteLevel = 0;
+
 let screens = ["open", "levels", "board", "help", "failed", "complete"];
 
 let boardManager = new BoardManager({playSound: playSound});
@@ -54,9 +56,6 @@ export function init() {
     setTimeout(() => {
         hideLoading();
     }, 1000);
-    // disableItem(3);
-    // disableItem(12);
-    // disableItem(30);
 }
 
 function displayScreen(id, over=false) {
@@ -82,15 +81,19 @@ function stopSound(snd) {
 }
 
 function loadLastCompleteLevel() {
-    let lcl = localStorage.getItem("last_complete_level");
-    if (lcl == null)
-        lcl = 1;
+    lastCompleteLevel = localStorage.getItem("lcl");
+    if (lastCompleteLevel == null)
+        lastCompleteLevel = 1;
 
-    return lcl;
+    return lastCompleteLevel;
 }
 
 function saveLastCompleteLevel(lvl) {
-    localStorage.setItem("last_complete_level", lvl)
+    console.log(lvl, lastCompleteLevel);
+    lastCompleteLevel = Math.max(lastCompleteLevel, lvl);
+    console.log(lvl, lastCompleteLevel);
+    
+    localStorage.setItem("lcl", lastCompleteLevel)
 }
 
 export function start() {
