@@ -431,7 +431,7 @@ body {
     justify-content: space-between;
     box-sizing: border-box;
     padding: 24px;
-    font-size: 3cqw;
+    font-size: 2.5cqw;
     box-shadow: 4px 4px 4px white;
     z-index: 50;
 }
@@ -450,7 +450,7 @@ body {
 }
 
 .screen .game-over .buttons .btn {
-    padding: 12px;
+    padding: 8px;
     background-color: white;
     border: 4px solid black;
     border-radius: 12px;
