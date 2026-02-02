@@ -6,9 +6,10 @@ html body {
     background-color: rgb(136, 97, 97);
     overflow: hidden;
     display: flex;
-    /* justify-content: center;
+    justify-content: center;
     align-items: center;
-    position: relative; */
+    position: relative;
+    min-height: 100svh;
 }
 
 /*  ============== LOADING ===================== */
