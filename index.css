@@ -195,7 +195,6 @@ html body {
     background-color: #256b41;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
     box-sizing: border-box;
     padding: 4px;
@@ -363,7 +362,8 @@ html body {
 
 .screen.help-scr .close-help-btn button {
     padding: 8px;
-    font-size: 1.5cqw;
+    font-size: 1.7cqw;
+    font-weight: bold;
     border: 4px solid white;
     border-radius: 12px;
     background-color: #df8943;
