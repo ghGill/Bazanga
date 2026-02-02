@@ -100,6 +100,7 @@ export function start() {
     playSound(clickEffect);
     playSound(bgMusic);
     displayScreen("levels");
+    displayScreen("help", true);
 }
 
 function CreateLevelsItems() {
@@ -242,7 +243,3 @@ window.closeHelp = closeHelp;
 window.restartLevel = restartLevel;
 window.playNextLevel = playNextLevel;
 window.showSolution = showSolution;
-
-/*
-display solution
-*/
