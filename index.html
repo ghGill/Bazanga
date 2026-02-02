@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Bazanga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script type="module" src="game.js"></script>
+</head>
+
+<body onload="init();">
+    <div id="rotate-msg" class="rotate-msg">
+        <label>
+            לא ניתן לשחק את המשחק במצב אנכי,<br/>
+            אנא סובב את המכשיר למצב אופקי כדי לשחק
+        </label>
+    </div>
+
+    <div id="game" class="game-container">
+        <div id="open" class="screen">
+            <div class="open-scr">
+                <img src="./assets/open-screen.png" class="bg-img" alt="Open image" />
+                <div class="play-btn-bg" >
+                    <img src="./assets/play.png" class="play-btn" onclick="start();" alt="play image" />
+                </div>
+            </div>
+        </div>
+
+        <div id="levels" class="screen levels-scr">
+            <div class="title">בחרו שלב</div>
+            <div id="items" class="items">
+
+            </div>
+        </div>
+
+        <div id="board" class="screen board-scr">
+            <div id="panel" class="panel">
+                <div class="panel-bg">
+                </div>
+
+                <div id="sound" onclick="changeSoundStatus()">
+                    <i class="fas fa-volume-high"></i>  
+                </div>            
+                <div onclick="restartLevel()">
+                    <i class="fa fa-rotate-left"></i>
+                </div>
+                <div onclick="showHelp()">
+                    <i class="fa fa-question"></i>  
+                </div>
+                <div onclick="showSolution()">
+                    <i class="fa fa-lightbulb"></i>  
+                </div>
+                <div onclick="backToLevelsMenu()">
+                    <i class="fa fa-bars"></i>  
+                </div>
+
+                <div id="disable-panel-buttons" class="disable-panel-buttons">
+                </div>
+            </div>
+
+            <div class="squares-area">
+                <div id="squares" class="squares">
+                </div>
+            </div>
+        </div>
+
+        <div id="help" class="screen help-scr">
+            <div class="help-bg">
+            </div>
+            <div class="help-text">
+-  במשחק זה עליכם לדלג בעזרת הכדור הכחול מעל כל המשבצות שמכילות מספרים או פעולות חשבוניות.
+-  ניתן לדלג מעל מספר או פעולה חשבונית בכל הכיוונים האפשריים (מעלה, מטה, ימינה, שמאלה ובאלכסונים). 
+-  לא ניתן לדלג מעל מספר או פעולה אם המשבצת שאליה רוצים לעבור אינה ריקה.
+-  כל מספר או פעולה שמעליהם דילג הכדור הכחול יעלמו והמשבצת תהפוך למשבצת ריקה.
+- בכל פעם שהכדור הכחול מדלג מעל מספר, ערכו של הכדור הכחול הופך להיות המספר שמעליו הוא דילג.
+- לא ניתן לדלג מעל מספר שקטן מערכו של הכדור הכחול.
+- דילוג מעל פעולה חשבונית תגרום לשינוי ערכו של הכדור הכחול (תוסיף או תוריד בהתאם למספר).
+- לא ניתן לדלג מעל פעולה שתגרום לערכו של הכדור הכחול להיות קטן מאפס.
+
+שימו לב:
+בכל שלב המשבצות שאליהן ניתן לעבור יסומנו על גבי הלוח.
+
+בהצלחה
+            </div>
+            <div class="close-help-btn">
+                <button onclick="closeHelp()">סגור</button>
+            </div>
+        </div>
+
+        <div id="failed" class="screen game-over-status">
+            <div class="game-over-bg">
+            </div>
+            <div class="game-over">
+                <div class="msg">...אופס
+                    לא הצלחת לסיים את השלב
+                </div>
+                <div class="buttons">
+                    <div class="btn" onclick="restartLevel()">
+                        <i class="fa fa-rotate-left"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="complete" class="screen game-over-status">
+            <div class="game-over-bg">
+            </div>
+            <div class="game-over">
+                <div class="msg">כל הכבוד
+                    השלמת את המשימה
+                </div>
+                <div class="buttons">
+                    <div class="btn" onclick="restartLevel()">
+                        <i class="fa fa-rotate-left"></i>
+                    </div>
+                    <div class="btn" onclick="playNextLevel()">
+                        <i class="fa fa-forward"></i>  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loading" class="loading">
+        <span class="loader"></span>
+    </div>
+
+</body>
+</html>
