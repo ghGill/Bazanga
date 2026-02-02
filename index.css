@@ -325,10 +325,9 @@ html body {
     height:100%;
     width: 100%;
     z-index: 100;
-    container-type: inline-size;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     container-type: inline-size;
 }
@@ -347,14 +346,14 @@ html body {
 .screen.help-scr .help-text {
     direction: rtl;
     width: 90%;
-    height: 85%;
+    height: min(85%, 70vh);
     color: white;
     display: flex;
     align-items: center;
-    margin: auto;
+    /* margin: auto; */
     white-space: pre-line;
     font-size: 2.4cqw;
-    /* line-height: 130%; */
+    line-height: 130%;
     user-select: none;
     z-index: 110;
 }
