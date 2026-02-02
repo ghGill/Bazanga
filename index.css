@@ -350,9 +350,8 @@ html body {
     color: white;
     display: flex;
     align-items: center;
-    /* margin: auto; */
     white-space: pre-line;
-    font-size: 2.4cqw;
+    font-size: 2cqw;
     line-height: 130%;
     user-select: none;
     z-index: 110;
@@ -364,8 +363,7 @@ html body {
 
 .screen.help-scr .close-help-btn button {
     padding: 8px;
-    margin-bottom: 8px;
-    font-size: 2.4cqw;
+    font-size: 1.5cqw;
     border: 4px solid white;
     border-radius: 12px;
     background-color: #df8943;
