@@ -363,9 +363,9 @@ export class BoardManager {
         const oldPlayer = this.player;
         this.player.squareElm.firstElementChild.style.transform = `translate(${dx - px}px, ${dy - py}px)`;
 
+        this.clearAvailableSquares();
+        
         setTimeout(() => {
-            this.clearAvailableSquares();
-
             this.player = this.boardItem(dc, dr);
             this.player.squareElm.appendChild(oldPlayer.squareElm.firstElementChild);
             this.player.squareElm.firstElementChild.style.transform = 'none';
@@ -377,7 +377,7 @@ export class BoardManager {
             this.removeBall(rc, rr);
 
             this.play();
-        }, 250);
+        }, 1000);
     }
 
     setPlayerValue(oldVal, newVal) {

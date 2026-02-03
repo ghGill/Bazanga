@@ -16,10 +16,18 @@ export const gameLevels = [
 			"random_start":false,
 		},
 		{
-			"cols": 5,
-			"rows": 5,
+			"cols": 3,
+			"rows": 3,
 			"size": 70,
-			"values":[1,1,1,3,3,3],
+			"values":[1,'+1',2,2],
+			"show_valid_places":true,
+			"random_start":false,
+		},
+		{
+			"cols": 3,
+			"rows": 3,
+			"size": 70,
+			"values":[2,'+1',3,'-1',2],
 			"show_valid_places":true,
 			"random_start":false,
 		},
@@ -27,7 +35,7 @@ export const gameLevels = [
 			"cols": 5,
 			"rows": 5,
 			"size": 70,
-			"values":[2,2,2,3,3,3,4,4,4],
+			"values":[2,2,2,4,4,4,5,5,5],
 			"show_valid_places":true,
 			"random_start":false,
 		},
@@ -52,14 +60,6 @@ export const gameLevels = [
 			"rows": 5,
 			"size": 70,
 			"values":[1,1,1,2,2,2,3,3,3,3,3,5,5,5],
-			"show_valid_places":true,
-			"random_start":false,
-		},
-		{
-			"cols": 5,
-			"rows": 5,
-			"size": 70,
-			"values":[1,1,1,1,2,3,3,4,4,4,4,4,4,4,5],
 			"show_valid_places":true,
 			"random_start":false,
 		},
@@ -261,8 +261,8 @@ export const gameLevels = [
 	]
 
 /*
-levels 1 - 2 : 3x3, nums 1-3, no operations
-levels 4 - 8 : 5x5, nums 1-5, no operations
+levels 1 - 4 : 3x3, nums 1-3, + and -
+levels 5 - 8 : 5x5, nums 1-5, no operations
 levels 9 - 16 : 5x5, nums 1-7, +
 levels 17 - 20 : 7x7, nums 1-9, +
 levels 21 - 24 : 7x7, nums 1-9, -
@@ -271,12 +271,12 @@ levels 25 - 32 : 7x7, nums 1-9, - and +
 LEVELS 1-8
 [1,2,3]
 [1,1,2,2]
-[1,1,1,3,3,3]
-[2,2,2,3,3,3,4,4,4]
+[1,'+1',2,2]
+[2,'+1',3,'-1',2]
+[2,2,2,4,4,4,5,5,5]
 [1,1,1,1,1,3,3,3,5,5,5,5]
 [1,1,1,1,1,2,2,2,2,3,4,4,5,5]
 [1,1,1,2,2,2,3,3,3,3,3,5,5,5]
-[1,1,1,1,2,3,3,4,4,4,4,4,4,4,5]
 
 LEVELS 9-16
 [1,1,'+1',2,2,2,3,4,4,5]
