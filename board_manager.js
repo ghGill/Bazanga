@@ -338,7 +338,7 @@ export class BoardManager {
         });
     }
 
-    movePlayer(elm = null, c = null, r = null) {
+    movePlayer(elm = null, c = null, r = null, cb=null) {
         this.gameManager.playSound(this.moveEffect);
 
         let dc = c, dr = r;
@@ -365,18 +365,25 @@ export class BoardManager {
 
         this.clearAvailableSquares();
         
+        const jumpOverValue = this.boardItem(rc, rr).ballValue;
+        this.removeBall(rc, rr);
+
         setTimeout(() => {
             this.player = this.boardItem(dc, dr);
             this.player.squareElm.appendChild(oldPlayer.squareElm.firstElementChild);
             this.player.squareElm.firstElementChild.style.transform = 'none';
-            this.setPlayerValue(oldPlayer.ballValue, this.boardItem(rc, rr).ballValue);
+            this.setPlayerValue(oldPlayer.ballValue, jumpOverValue);
 
             oldPlayer.squareElm.innerHTML = '';
             oldPlayer.ballValue = 0;
 
-            this.removeBall(rc, rr);
-
             this.play();
+
+            if (cb !== null) {
+                setTimeout(() => {
+                    this[cb]();
+                }, 1000);                
+            }
         }, 1000);
     }
 
@@ -432,7 +439,10 @@ export class BoardManager {
         this.viewMode = "solution";
         this.onSolutionCompleteCallback = cb;
         this.solutionSteps = [...this.boardSolution];
-        this.showNextSolutionStep();
+        this.play();
+        setTimeout(() => {
+            this.showNextSolutionStep();
+        }, 1000);
     }
 
     showNextSolutionStep() {
@@ -444,11 +454,6 @@ export class BoardManager {
 
         const step = this.solutionSteps.shift();
 
-        this.movePlayer(null, step.c, step.r);
-
-        setTimeout(() => {
-            this.showNextSolutionStep();
-        }, 1000);
-
+        this.movePlayer(null, step.c, step.r, "showNextSolutionStep");
     }
 }
