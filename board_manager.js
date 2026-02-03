@@ -167,7 +167,7 @@ export class BoardManager {
                         break;
 
                     case 1000:  // player (blue ball)
-                        this.player = this.locateBall(cIndex, rIndex, '', "player");
+                        this.player = this.locateBall(cIndex, rIndex, '0', "player");
                         break;
 
                     default:
@@ -215,6 +215,7 @@ export class BoardManager {
 
             case 'player':
                 file = 'player.png';
+                ballWrapper.classList.add('blue-ball');
                 break;
         }
         ballImg.src = `./assets/${file}`;
