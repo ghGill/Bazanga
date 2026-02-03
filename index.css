@@ -421,6 +421,7 @@ body {
     justify-content: center;
     align-items: center;
     container-type: inline-size;
+    z-index:15;
 }
 
 .screen .game-over-bg {
