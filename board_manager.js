@@ -136,6 +136,7 @@ export class BoardManager {
 
     drawBoard() {
         const squaresElement = document.getElementById("squares");
+        squaresElement.style.visibility = "hidden";
 
         // clear board
         this.board = [];
@@ -176,6 +177,8 @@ export class BoardManager {
                 }
             })
         });
+
+        squaresElement.style.visibility = "visible";
     }
 
     boardSquare(c, r) {
