@@ -323,11 +323,15 @@ export class BoardManager {
                 if ((isOp && (opResult >= 0)) || (parseInt(skipOverValue) >= parseInt(playerValue))) {
                     this.availableSquares.push(op);
 
-                    this.boardItem(c, r, "squareElm").classList.add("valid-click");
+                    this.markSquare(c, r);
                     this.boardItem(c, r, "squareElm").addEventListener("click", this.movePlayer);
                 }
             });
         }
+    }
+
+    markSquare(c, r) {
+        this.boardItem(c, r, "squareElm").classList.add("valid-click");
     }
 
     clearAvailableSquares() {
@@ -377,14 +381,15 @@ export class BoardManager {
             oldPlayer.squareElm.innerHTML = '';
             oldPlayer.ballValue = 0;
 
-            this.play();
-
             if (cb !== null) {
                 setTimeout(() => {
                     this[cb]();
                 }, 1000);                
             }
-        }, 1000);
+            else {
+                this.play();
+            }
+        }, 500);
     }
 
     setPlayerValue(oldVal, newVal) {
@@ -439,10 +444,8 @@ export class BoardManager {
         this.viewMode = "solution";
         this.onSolutionCompleteCallback = cb;
         this.solutionSteps = [...this.boardSolution];
-        this.play();
-        setTimeout(() => {
-            this.showNextSolutionStep();
-        }, 1000);
+        this.clearAvailableSquares();
+        this.showNextSolutionStep();
     }
 
     showNextSolutionStep() {
@@ -454,6 +457,11 @@ export class BoardManager {
 
         const step = this.solutionSteps.shift();
 
-        this.movePlayer(null, step.c, step.r, "showNextSolutionStep");
+        this.availableSquares = [[step.c, step.r]];
+        this.markSquare(step.c, step.r);
+
+        setTimeout(() => {
+            this.movePlayer(null, step.c, step.r, "showNextSolutionStep");
+        }, 500);
     }
 }
