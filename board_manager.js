@@ -16,11 +16,11 @@ export class BoardManager {
         this.viewMode = null;
 
         this.moveEffect = new Audio("./assets/move.mp3");
-
-        this.windowH = document.getElementById("game").offsetHeight;
     }
 
     playLevelBoard(lvl, cb) {
+        this.windowH = document.getElementById("game").offsetHeight;
+
         this.levelStatusCallback = cb;
         this.playLevel = lvl;
         this.viewMode = "play";
