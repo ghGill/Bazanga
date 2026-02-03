@@ -16,6 +16,8 @@ export class BoardManager {
         this.viewMode = null;
 
         this.moveEffect = new Audio("./assets/move.mp3");
+
+        this.windowH = document.getElementById("game").offsetHeight;
     }
 
     playLevelBoard(lvl, cb) {
@@ -135,6 +137,8 @@ export class BoardManager {
     }
 
     drawBoard() {
+        this.squareSize = Math.min(Math.floor((this.windowH * .85) / this.boardJson.rows), this.boardJson.size);
+
         const squaresElement = document.getElementById("squares");
         squaresElement.style.visibility = "hidden";
 
@@ -184,8 +188,8 @@ export class BoardManager {
     boardSquare(c, r) {
         let e = document.createElement("div");
         e.classList.add("square-item");
-        e.style.width = `${this.boardJson.size}px`;
-        e.style.height = `${this.boardJson.size}px`;
+        e.style.width = `${this.squareSize}px`;
+        e.style.height = `${this.squareSize}px`;
         e.dataset.c = c;
         e.dataset.r = r;
 

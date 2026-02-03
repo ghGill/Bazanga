@@ -336,6 +336,7 @@ body {
     justify-content: center;
     align-items: center;
     transition: transform 0.4s ease;
+    container-type: inline-size;
 }
 
 
@@ -350,7 +351,7 @@ body {
 
 .ball-text {
     position: absolute;
-    font-size: 2rem;
+    font-size: 40cqw;
     font-weight: bold;
     user-select: none;
 }
