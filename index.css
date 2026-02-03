@@ -2,6 +2,8 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -80,13 +82,19 @@ body {
 .rotate-msg {
     box-sizing: border-box;
     margin: 8px;
-    padding: 8px;
+    padding: 12px;
     direction: rtl;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     background-color: red;
     border: 2px solid black;
     border-radius: 12px;
     color: white;
+}
+
+.rotate-msg .msg-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
 }
 
 /*  ============== ACTIONS PANEL ===================== */
