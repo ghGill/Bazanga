@@ -325,9 +325,19 @@ body {
 }
 
 .valid-click {
-    background-color: rgb(87, 139, 197);
+    background-color: rgb(54, 224, 210);
     cursor: pointer;
+    /* animation: blink 1s infinite; */
 }
+
+/* .blink {
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1;     border: 2px solid black;}
+  50% { opacity: 0.3;     border: 2px solid black;}
+} */
 
 .ball-wrapper {
     width: 100%;
@@ -339,9 +349,16 @@ body {
     container-type: inline-size;
 }
 
-
 .ball-wrapper.blue-ball {
     filter: brightness(1.9);    
+}
+
+.ball-wrapper.ball-num {
+    filter: brightness(1.0);    
+}
+
+.ball-wrapper.ball-op {
+    filter: brightness(0.8);    
 }
 
 .ball-img {

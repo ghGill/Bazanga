@@ -222,10 +222,12 @@ export class BoardManager {
         switch (type) {
             case 'num':
                 file = 'num_bg.png';
+                ballWrapper.classList.add('ball-num');
                 break;
 
             case 'op':
                 file = 'op_bg.png';
+                ballWrapper.classList.add('ball-op');
                 break;
 
             case 'player':
