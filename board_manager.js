@@ -165,6 +165,8 @@ export class BoardManager {
             squaresElement.appendChild(squaresRow);
         }
 
+        this.ballImageLoadedCounter = 0;
+
         this.boardSchema.map((row, rIndex) => {
             row.map((val, cIndex) => {
                 switch (parseInt(val)) {
@@ -172,17 +174,23 @@ export class BoardManager {
                         break;
 
                     case 1000:  // player (blue ball)
-                        this.player = this.locateBall(cIndex, rIndex, '0', "player");
+                        this.player = this.locateBall(cIndex, rIndex, '0', "player", this.ballImageLoaded);
                         break;
 
                     default:
                         const type = (typeof (val) == "string" ? "op" : "num");
-                        this.locateBall(cIndex, rIndex, val, type);
+                        this.locateBall(cIndex, rIndex, val, type, this.ballImageLoaded);
                 }
             })
         });
+    }
 
-        squaresElement.style.visibility = "visible";
+    ballImageLoaded(self) {
+        self.ballImageLoadedCounter++;
+
+        if (self.ballImageLoadedCounter >= self.getBoardJson().values.length) {
+            document.getElementById("squares").style.visibility = "visible";
+        }
     }
 
     boardSquare(c, r) {
@@ -202,7 +210,7 @@ export class BoardManager {
         return { x: x, y: y };
     }
 
-    locateBall(c, r, val, type) {
+    locateBall(c, r, val, type, imgLoadedCB) {
         const ballWrapper = document.createElement("div");
         ballWrapper.classList.add('ball-wrapper');
         ballWrapper.width = `${this.boardJson.size}px`;
@@ -226,6 +234,10 @@ export class BoardManager {
                 break;
         }
         ballImg.src = `./assets/${file}`;
+
+        ballImg.addEventListener('load', () => {
+            imgLoadedCB(this);
+        });
 
         const ballText = document.createElement("div");
         ballText.classList.add('ball-text');
