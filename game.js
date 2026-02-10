@@ -8,7 +8,7 @@ let bgMusic = null;
 let clickEffect=null;
 let completeEffect=null;
 let failedEffect=null;
-let volumeStatus = true;
+let volumeStatus = null;
 
 let lastCompleteLevel = 0;
 
@@ -50,6 +50,10 @@ export function init() {
     failedEffect = new Audio("./assets/failed.mp3");
     completeEffect = new Audio("./assets/complete.mp3");
 
+    volumeStatus = loadSoundStatus();
+    
+    updateSoundIcon();
+
     displayScreen("open");
     CreateLevelsItems();
 
@@ -70,7 +74,7 @@ function hideScreen(id) {
 }
 
 function playSound(snd) {
-    if (!volumeStatus)
+    if (volumeStatus === 0)
         return;
 
     snd.play();
@@ -94,6 +98,18 @@ function saveLastCompleteLevel(lvl) {
     console.log(lvl, lastCompleteLevel);
     
     localStorage.setItem("lcl", lastCompleteLevel)
+}
+
+function loadSoundStatus() {
+    let soundStatus = localStorage.getItem("snd");
+    if (soundStatus == null)
+        soundStatus = 1;
+
+    return parseInt(soundStatus);
+}
+
+function saveSoundStatus(status) {
+    localStorage.setItem("snd", status)
 }
 
 export function start() {
@@ -175,17 +191,26 @@ function levelResult(result) {
 export function changeSoundStatus() {
     playSound(clickEffect);
 
-    volumeStatus = !volumeStatus;
+    volumeStatus = (volumeStatus === 0) ? 1 : 0;
 
+    updateSoundIcon();
+
+    if (volumeStatus === 1)
+        playSound(bgMusic);
+    else
+        stopSound(bgMusic);
+
+    saveSoundStatus(volumeStatus);
+}
+
+function updateSoundIcon() {
     const elm = document.getElementById("sound");
 
-    if (volumeStatus) {
+    if (volumeStatus === 1) {
         elm.innerHTML = '<i class="fas fa-volume-high"></i>';
-        playSound(bgMusic);
     }
     else {
         elm.innerHTML = '<i class="fas fa-volume-xmark"></i>';
-        stopSound(bgMusic);
     }
 }
 
