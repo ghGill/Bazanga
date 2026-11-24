@@ -89,7 +89,7 @@ function loadLastCompleteLevel() {
     if (lastCompleteLevel == null)
         lastCompleteLevel = 1;
 
-    return lastCompleteLevel;
+    return 32; //lastCompleteLevel;
 }
 
 function saveLastCompleteLevel(lvl) {
